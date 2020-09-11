@@ -1,0 +1,16 @@
+login webhost
+user: luvizotto_c@outlook.com
+senha: Luvizotto2301
+
+ftp: 
+host: files.000webhost.com
+porta: 21
+usuário: luvizottoteste
+senha: Kratos007
+
+bd:
+user: freela
+senha: Luvizotto2301*
+
+api google:
+
