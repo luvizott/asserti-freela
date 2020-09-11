@@ -157,11 +157,6 @@ class AuthController extends Controller
 
         $data = $request->all();
 
-        /*if ($data['password'] != null)
-            $data['password'] = bcrypt($data['password']);
-        else
-            unset($data['password']);*/
-
         $data['image'] = $user->image;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             if ($user->image)
@@ -174,14 +169,9 @@ class AuthController extends Controller
             $extenstion = $request->image->extension();
             $nameFile = "img" . $ldate.'.'. $extenstion;
 
-            $data['image'] = $nameFile;  // gabrielruimdevalorant.jpg
+            $data['image'] = $nameFile;
             
             $upload = $request->image->storeAs('users', $nameFile);
-            // dd($upload);
-            // if (!$upload)
-            //     return redirect()->back()->with('error', 'Falha ao fazer o upload');
-            
-            // return redirect()->back()->with('success', 'Dados atualizados com sucesso!');
         }
         $update = auth()->user()->update($data);
 

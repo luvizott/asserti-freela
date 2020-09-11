@@ -25,8 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('status')->nullable();
             $table->string('dispon')->nullable();
             $table->string('birth')->nullable();
-            $table->string('celular')->nullable();
-            $table->string('telefone')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();
             $table->rememberToken();

@@ -21,7 +21,6 @@ class CreateCoursesTable extends Migration
             $table->string('curso');
             $table->string('institute');
             $table->string('year');
-            $table->string('pro_exp')->nullable();
         });
     }
 

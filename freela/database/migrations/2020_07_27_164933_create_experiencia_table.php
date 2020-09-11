@@ -19,6 +19,8 @@ class CreateExperienciaTable extends Migration
             $table->string('user_id');
             $table->string('empresa');
             $table->string('function');
+            $table->string('time_fst');
+            $table->string('time_scd');
         });
     }
 

@@ -18,9 +18,7 @@ class CreateContactTable extends Migration
             $table->timestamps();
             $table->string('user_id');
             $table->string('cell');
-            $table->string('tel');
-            $table->string('linkedin');
-            $table->string('github');
+            $table->string('type');
         });
     }
 
