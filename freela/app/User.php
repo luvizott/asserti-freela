@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -57,5 +58,83 @@ class User extends Authenticatable implements MustVerifyEmail
     public function address()
     {
         return $this->hasOne(Address::class, 'users', 'id');
+    }
+    public function search($filter = null, $filter2 = null, $filter3 = null)
+    {
+        if (isset($filter) && ($filter2 == null) && ($filter3 == null)) {
+            return $data = DB::table('users')
+            ->where('idioma.idioma', $filter)
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->join('contact', 'contact.user_id', 'users.id')
+            ->select('users.*', 'idioma.*', 'address.*', 'tecnology.*', 'contact.*' )
+            ->paginate(10);
+        }
+        elseif (isset($filter2) && ($filter == null) && ($filter3 == null)) {
+            return $data = DB::table('users')
+            ->where('address.cidade', $filter2)
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->join('contact', 'contact.user_id', 'users.id')
+            ->select('users.*', 'idioma.*', 'address.*', 'tecnology.*', 'contact.*' )
+            ->paginate(10);
+        }
+        elseif (isset($filter3) && ($filter == null) && ($filter2 == null) ) {
+            return $data = DB::table('users')
+            ->where('tecnology.tecnology', $filter3)
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->join('contact', 'contact.user_id', 'users.id')
+            ->select('users.*', 'idioma.*', 'address.*', 'tecnology.*', 'contact.*' )
+            ->paginate(10);
+        }
+        elseif (isset($filter) && isset($filter2) && ($filter3 == null)) {
+            return $data = DB::table('users')
+            ->where('address.cidade', $filter2)
+            ->where('idioma.idioma', $filter)
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->join('contact', 'contact.user_id', 'users.id')
+            ->select('users.*', 'idioma.*', 'address.*', 'tecnology.*', 'contact.*' )
+            ->paginate(10);
+        }
+        elseif (isset($filter) && isset($filter2) && isset($filter3)) {
+            return $data = DB::table('users')
+            ->where('tecnology.tecnology', $filter3)
+            ->where('address.cidade', $filter2)
+            ->where('idioma.idioma', $filter)
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->join('contact', 'contact.user_id', 'users.id')
+            ->select('users.*', 'idioma.*', 'address.*', 'tecnology.*', 'contact.*' )
+            ->paginate(10);
+        }
+        elseif (isset($filter) && isset($filter3) && ($filter2 == null)) {
+            return $data = DB::table('users')
+            ->where('tecnology.tecnology', $filter3)
+            ->where('idioma.idioma', $filter)
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->join('contact', 'contact.user_id', 'users.id')
+            ->select('users.*', 'idioma.*', 'address.*', 'tecnology.*', 'contact.*' )
+            ->paginate(10);
+        }
+        elseif (($filter == null) && isset($filter2) && isset($filter3)) {
+            return $data = DB::table('users')
+            ->where('tecnology.tecnology', $filter3)
+            ->where('address.cidade', $filter2)
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->join('contact', 'contact.user_id', 'users.id')
+            ->select('users.*', 'idioma.*', 'address.*', 'tecnology.*', 'contact.*' )
+            ->paginate(10);
+        }
     }
 }

@@ -18,7 +18,7 @@ class CreateTecnologyTable extends Migration
             $table->timestamps();
             $table->string('user_id');
             $table->string('type');
-            $table->string('name');
+            $table->string('tecnology');
             $table->string('nivel');
         });
     }

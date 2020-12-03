@@ -14,7 +14,7 @@ class TecnologyController extends Controller
     {
         $tecnology = new Tecnology();
         $tecnology->type = $request->type;
-        $tecnology->name = $request->name;
+        $tecnology->tecnology = $request->tecnology;
         $tecnology->nivel = $request->nivel;
         $tecnology->user_id = auth()->user()->id;
         $tecnology->save();

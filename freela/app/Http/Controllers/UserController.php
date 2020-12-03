@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use App\User as AppUser;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    protected $request;
+    private $repository;
+
+    public function __construct(Request $request, AppUser $user)
+    {
+        $this->request = $request;
+        $this->repository = $user;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('users')
+            ->join('address', 'address.user_id', 'users.id')
+            ->join('idioma', 'idioma.user_id', 'users.id')
+            ->join('tecnology', 'tecnology.user_id', 'users.id')
+            ->select('address.*', 'users.*', 'idioma.*', 'tecnology.*' )
+            ->paginate(2);
+        return view('pages.freelas', ['data'=>$data]);
     }
 
     /**
@@ -82,5 +99,16 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function search(Request $request)
+    {
+        $filters = $request->all();
+
+        $data = $this->repository->search($request->filter);
+
+            return view('pages.freelas', [
+                'data' => $data, 
+                'filters' => $filters,
+            ]);
     }
 }

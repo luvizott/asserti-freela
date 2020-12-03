@@ -23,7 +23,7 @@
                                     <a href="{{ Auth::user()->github }}" target="_blank"><i class="fa fa-github"></i></a>
                                 </div>
                                 <div class="mt-3 ml-3" style="padding: 0;">
-                                    <strong>Atualizado em:</strong> {{ auth()->user()->updated_at->format('d/m/20y') }}
+                                    <strong>Atualizado em:</strong> {{ auth()->user()->updated_at->format('d/m/Y') }}
                             </div>
                             </div>
                         </div>
@@ -33,7 +33,11 @@
                                     <h3>Olá, {{ auth()->user()->name }}</h3>
                                 </div>
                                 <div class="mt-3 col-md-12">
-                                    <strong>Data de Nascimento:</strong> {{ \Carbon\Carbon::parse(auth()->user()->birth)->format('d/m/20y') }}
+                                    @if (auth()->user()->birth != null)
+                                        <strong>Idade:</strong> {{ \Carbon\Carbon::parse( auth()->user()->birth)->age }}
+                                    @else
+                                        <strong>Idade:</strong>
+                                    @endif
                                 </div>
                                 <div class="mt-3 col-md-12">
                                     <strong>Sexo:</strong> {{ auth()->user()->sexo }}
@@ -130,7 +134,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="date" onfocus="(this.type='date')" onblur="(this.type='text')" value="{{auth()->user()->birth }}" placeholder="Data de Nascimento" name="birth" class="form-control">
+                            <input type="date" value="{{auth()->user()->birth }}" placeholder="Data de Nascimento" name="birth" class="form-control">
                         </div>
 
                         <div class="form-group">

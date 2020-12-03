@@ -23,12 +23,14 @@
                         <a class="nav-link" href="{{ route('site.home') }}">Home</a>
                         <a class="nav-link" target="_blank" href="http://asserti.org">Asserti</a>
                         <a class="nav-link" target="_blank" href="http://vagas.asserti.org.br">Vagas</a>
+                        <a class="nav-link" href="{{ route('freelas') }}">Freelas</a>
                         <a class="nav-link" href="{{ url('/perfil') }}">Perfil</a>
                         <a class="nav-link" href="{{ route('perfil.logout') }}">Logout</a>
                     @else
                         <a class="nav-link" href="{{ route('site.home') }}">Home</a>
                         <a class="nav-link" target="_blank" href="http://asserti.org">Asserti</a>
                         <a class="nav-link" target="_blank" href="http://vagas.asserti.org.br">Vagas</a>
+                        <a class="nav-link" href="{{ route('freelas') }}">Freelas</a>
                         <a class="nav-link" href="{{ route('formLogin') }}">Login</a>
                         <a class="nav-link" href="{{ route('register') }}">Registrar</a>
                         @endauth
@@ -42,12 +44,14 @@
                     <a class="nav-link" href="{{ route('site.home') }}">Home</a>
                     <a class="nav-link" target="_blank" href="http://asserti.org">Asserti</a>
                     <a class="nav-link" target="_blank" href="http://vagas.asserti.org.br">Vagas</a>
+                    <a class="nav-link" href="{{ route('freelas') }}">Freelas</a>
                     <a class="nav-link" href="{{ url('/perfil') }}">Perfil</a>
                     <a class="nav-link" href="{{ route('perfil.logout') }}">Logout</a>
                     @else
                         <a class="nav-link" href="{{ route('site.home') }}">Home</a>
                         <a class="nav-link" target="_blank" href="http://asserti.org">Asserti</a>
                         <a class="nav-link" target="_blank" href="http://vagas.asserti.org.br">Vagas</a>
+                        <a class="nav-link" href="{{ route('freelas') }}">Freelas</a>
                         <a class="nav-link" href="{{ route('formLogin') }}">Login</a>
                         <a class="nav-link" href="{{ route('register') }}">Registrar</a>
                     @endauth

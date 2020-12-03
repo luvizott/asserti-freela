@@ -10,9 +10,9 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
-                    <?php $i=1 ?>
-                    @foreach($data  as $user)
-                    @if($user->id == $i)
+                    
+                    @foreach($data->unique('name')  as $user) 
+                        
                         <div class="col-md-4 perfil-list mt-3">
                             <div class="row">
                                 <div class="col-md-12">
@@ -39,11 +39,10 @@
                                 <div class="col-md-12 mt-3">
                                     <a class="btn btn-warning" href="{{ route('freelaById', $user->id) }}">Ver Perfil</a>
                                 </div>
-                               
+                                
                             </div>
                         </div>
-                        <?php $i++ ?>
-                    @endif
+                        
                     @endforeach
                 </div>
             </div>
@@ -76,7 +75,7 @@
                             <button class="mt-4 btn btn-warning" type="submit">Filtrar</button>
                         </div>
                         <div class="col-md-6">
-                            @if(route(\Request::route()->getName()) == 'https://freela.asserti.org.br/freelas/search')
+                            @if(route(\Request::route()->getName()) == 'http://localhost/laravel/freela/public/freelas/search')
                                 <a class="btn btn-danger mt-4" href="{{ route('freelas') }}">Limpar</a>
                             @endif
                         </div>

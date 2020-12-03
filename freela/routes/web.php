@@ -23,6 +23,11 @@ Route::get('/formLogin', function() {
     return view('admin.formLogin');
 })->name('formLogin');
 
+Route::any('freelas/search', 'SearchController@search')->name('freelas.search');
+
+Route::get('freela/contact/{id}', 'UserController@freela')->name('freela.contact');
+
+
 Route::get('/politicaPrivacidade', function() {
     return view('pages.politicaPrivacidade');
 })->name('politcs');
@@ -61,7 +66,10 @@ Route::get('login/facebook/callback', 'SocialiteController@handleProviderCallbac
 Route::get('login/{provider}', 'SocialiteController@redirect');
 Route::get('login/{provider}/callback','SocialiteController@Callback');
 
-Route::get('list', 'Freelas@list')->name('list');
+Route::get('/freelas', 'SearchController@index')->name('freelas');
+
+Route::get('/freela/{id}', 'SearchController@indexFreela')->name('freelaById');
+
 
 Route::get('address', function () {
     return view('dashboard');

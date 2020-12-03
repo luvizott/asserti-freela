@@ -6,7 +6,7 @@
             @foreach($tecnology as $item)
             <div class="col-md-10">
                 <div class="col-md-12">
-                    <strong>{{ $item->type }}:</strong> {{ $item->name }}
+                    <strong>{{ $item->type }}:</strong> {{ $item->tecnology }}
                 </div>
                 <div class="col-md-12 mb-4">
                     <strong>Nível de domínio:</strong> {{ $item->nivel }}
@@ -50,7 +50,7 @@
                         </div>
                         
                         <div class="form-group tec-form">
-                            <input type="text" name="name" placeholder="Nome da tecnologia" class="form-control">
+                            <input type="text" name="tecnology" placeholder="Nome da tecnologia" class="form-control">
                         </div>
                         <div class="form-group tec-form">
                             <select class="ml-2" name="nivel" id="">

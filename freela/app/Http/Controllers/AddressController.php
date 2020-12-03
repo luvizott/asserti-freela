@@ -65,7 +65,6 @@ class AddressController extends Controller
 
         $address = $this->address->find($id);
 
-        //$update = $address->update($dataForm);
         $update = auth()->user()->update($data);
 
         if ( $update )
