@@ -556,3 +556,9 @@ display: block;
     margin-top: 17%;
   }
 }
+.contact-btn a {
+  background: #f29105;
+  padding: 5px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+}

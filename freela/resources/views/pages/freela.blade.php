@@ -9,8 +9,8 @@
 					@include('freela/freelaName')
 				</div>
 				<div class="col-md-3 sep">
-					@foreach($unique as $user)
-						@if($i == 0)
+					@foreach($user as $user)
+						@if( $i == 0)
 						<h3>{{ $user->name }}</h3>
 						<strong>Idade: </strong> {{ \Carbon\Carbon::parse($user->birth)->age }}<br>
 						<strong>Cidade:</strong> {{ $user->cidade }} - {{ $user->uf }}<br>

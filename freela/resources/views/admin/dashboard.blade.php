@@ -29,6 +29,5 @@
     </div>
 </section>
     @include('parts/footer')
-    
 </body>
 </html>
