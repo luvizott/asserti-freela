@@ -633,3 +633,7 @@ display: block;
 .sep {
     padding: 25px 25px;
 }
+
+.sep img {
+  width: 100%;
+}

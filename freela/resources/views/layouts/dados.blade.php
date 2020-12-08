@@ -11,7 +11,7 @@
                                 @if ((auth()->user()->provider) != NULL)
                                     <img src="{{ Auth::user()->image}}" alt="{{Auth::user()->name}}"><!-- Se o usuário estiver logado com facebook, a imagem puxada será a do perfil do facebook-->
                                 @else
-                                    <img alt="{{Auth::user()->name}}" src="{{ env('APP_URL') }}/users/{{ Auth::user()->image}}"/> 
+                                    <img alt="{{Auth::user()->name}}" src="{{ env('APP_URL') }}storage/users/{{ Auth::user()->image}}"/> 
                                 @endif
                             </div>
                             <div class="row text-center">

@@ -6,7 +6,7 @@
 				@if (($user->provider) != NULL)
 					<img src="{{ $user->image }}" alt="{{ $user->image }}"><!-- Se o usuário estiver logado com facebook, a imagem puxada será a do perfil do facebook-->
 				@else
-					<img alt="{{ $user->image }}" src="{{ env('APP_URL') }}/users/{{ $user->image }}"/> 
+					<img alt="{{ $user->image }}" src="{{ env('APP_URL') }}/storage/users/{{ $user->image }}"/> 
 				@endif
 				@if($user->status == "inidisponivel")
 				<center><strong>Status:</strong> Indisponível</center>

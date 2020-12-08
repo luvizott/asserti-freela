@@ -48,9 +48,24 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => 'ftp.zypherserver.com',
+            'username' => 'u415864670.luvizotto',
+            'password' => 'Kratos007',
+            'root' => '',
+
+            // Optional FTP Settings...
+            // 'port' => 21,
+            // 'root' => '',
+            // 'passive' => true,
+            // 'ssl' => true,
+            // 'timeout' => 30,
+        ],
+
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('../freela'),
+            'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
@@ -79,7 +94,7 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('../freela'),
+        public_path('storage') => storage_path('public'),
     ],
 
 ];
